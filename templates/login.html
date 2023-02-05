@@ -1,12 +1,44 @@
-{{% block extendes 'base.html'%}}
+{% extends 'base.html' %}
 
+{% block title %}<title>Client Manager - Login</title>{% endblock %}
 
-{{% block content %}}
+{% block content %}
 
-<form action="" method="get">
+<form action="{{url_for('login')}}" method="post" class="login-box">
     <div>
-        <input type="text" placeholder="Usuario" name="usuario" required>
+        <img src="{{url_for('static', filename='fashion.png')}}" style="width: 120px;"> 
     </div>
+    <h2>ENTRAR</h2>
+    <br>
+    <div>
+        <select class="form-select" aria-label="Default select example" style="width: 100%;">
+            <option selected>Selecione a Empresa</option>
+            <option value="1">Cola-Cola</option>
+            <option value="2">Ford</option>
+            <option value="3">Prefeitura</option>
+        </select>
+        <br>
+    </div>
+    <div class="form-floating mb-3" style="width: 30%;">
+        <input type="email" class="form-control" id="floatingInput" placeholder="Usuario" name="usuario">
+        <label for="floatingInput">Usuario</label>
+      </div>
+    <div class="form-floating" style="width: 30%;">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="senha">
+        <label for="floatingPassword">********</label>
+    </div>
+    <br>    
+    <div class="button-lg">
+        <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+    </div>
+    <br>
+ <!--
+    <div class="alert alert-danger" role="alert" style="font-size:18px">
+
+        Credenciais Incorretas!
+    </div>
+ -->   
+
 </form>
 
-{{ endblock }}
+{% endblock %}
