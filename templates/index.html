@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
 <header>
     <div class="container">
         <header class="d-flex justify-content-center py-3">
@@ -15,10 +16,78 @@
           </ul>
         </header>
     </div>
-    
+    <!--
+      Esse problema da tabela pode ser resolvido com um for
+    -->
     <h1>Clientes</h1>
-    <div>
-
-    </div>
 </header>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">CNPJ</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Alterar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Juliano Gonçalves LTDA</td>
+        <td>14.025.887/0001-55</td>
+        <td>R$ 1.548.463,67</td>
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Options</button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Everton Caminhoes LTDA</td>
+        <td>023.554.698/0001-87</td>
+        <td>R$ 914.554,23</td>
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Options</button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Hiasmyn Miranda Stasiak</td>
+        <td>07.854.36/0001-98</td>
+        <td>R$ 854.647,54</td>
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Options</button></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Grupo Kurujao</td>
+        <td>18.132.36/0001-43</td>
+        <td>R$ 754.647,54</td>
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Options</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Alterar Dados</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <a href="#">Alterar Cadastro</a><br>
+        <a href="#">Alterar Status</a><br>
+        <a href="#">Excluir Cliente</a>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar Alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}

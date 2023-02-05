@@ -58,11 +58,28 @@ def login():
             flash('Credenciais Inválidas')
             return redirect(url_for("login"))
 
-        #login_user(user)   
+        #login_user(user)
         return redirect(url_for("index"))
 
     return render_template("login.html")
 
+@app.route("/route_admin_secret")
+def route_admin_secret():
+    if request.method=='POST':
+        username = request.form['usuario']
+        password = request.form['senha']
+        
+        user = User.query.filter_by(login=username).first()
+        if not user:
+            flash('Credenciais Inválidas')
+            return redirect(url_for("login"))
+
+        if not password(user.password, password):
+            flash('Credenciais Inválidas')
+            return redirect(url_for("login"))
+            
+        #login_user(user)
+        return redirect(url_for("index"))
 
 @app.route("/index")
 def index():
@@ -72,6 +89,11 @@ def index():
 def settings():
 
     return render_template("settings.html")
+
+@app.route("/settings/registrar")
+def registrar():
+
+    return render_template("register_user.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
