@@ -17,3 +17,4 @@ Funcionalidades como:
     - Tirar Relatorio
     - Grafico detalhado
 ```
+- Estou implementando um <strong>FOR</strong> para percorrer meus dados que foram importados com ajuda da lib pandas e openpyxl e criar meus clientes na tabela com organização.
