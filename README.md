@@ -5,6 +5,7 @@ Projeto para Controle de Clientes com saldos devedores automatizado.
 - Linguagem Python
 - Framework FLASK
 ```
+python -m venv venv-appclient
 pip install -r requirements.txt
 
 ```
