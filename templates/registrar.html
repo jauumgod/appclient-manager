@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<header>
+    <div class="container">
+        <header class="d-flex justify-content-center py-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{{url_for('index')}}" class="nav-link" aria-current="page">Inicio</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Analise</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contratos</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Resolvidos</a></li>
+            <li class="nav-item"><a href="{{url_for('config')}}" class="nav-link">Configuração</a></li>
+          </ul>
+        </header>
+    </div>
+   <hr> 
+    <h1 style="text-align: center;">ADICIONAR NOVO USUARIO</h1><br>
+
+    <form action="{{url_for('registrar')}}" method="post" class="register-box">
+      <div>
+        <input type="text" class="form-control" id="floatingInput" placeholder="Usuario" name="user">
+      </div>
+      <div>
+        <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="password">
+      </div><br>
+      <div class="button-lg">
+        <button type="submit" class="btn btn-primary btn-lg">REGISTRAR</button>
+      </div>
+    </form>
+</header>
+{% endblock %}

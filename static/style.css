@@ -6,4 +6,12 @@
     font-size: 18px;
 }
 
+.register-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px;
+    font-size: 18px;
+}
+
 
