@@ -11,9 +11,9 @@
             <li class="nav-item"><a href="{{url_for('index')}}" class="nav-link" aria-current="page">Inicio</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Analise</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Contratos</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Resolvidos</a></li>
+            <li class="nav-item"><a href="{{url_for('resolvidos')}}" class="nav-link">Resolvidos</a></li>
             <li class="nav-item"><a href="{{url_for('registrar')}}" class="nav-link">Registrar Usuario</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Sair</a></li>
+            <li class="nav-item"><a href="{{url_for('logout_user')}}" class="nav-link">Sair</a></li>
           </ul>
           
         </header>
@@ -21,14 +21,30 @@
     <hr>
     
     <h1 style="text-align: center;">CONTROLE DE USUARIOS</h1>
-    
-
     <div>
-      <ul class="list-group">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Alterar</th>
+            <th scope="col">Excluir</th>
+          </tr>
+        </thead>
+      <tbody>
         {% for user in users%}
-          <li class="list-group-item" > {{user.id}} -> {{user.username}} <a href="{{url_for('deleteUser',id=user.id)}}">Delete</a>
+        <tr>
+          <th scope="row">1</th>
+          <td>{{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td><a href="#"><button type="button" class="btn btn-primary">Alterar Nome</button></td>
+          <td><a href="{{url_for('deleteUser',id=user.id)}}"><button type="button" class="btn btn-danger">Excluir</button></a></td>
+          <td><a href=""></a><button type="button" class="btn btn-danger">Desativar</button></td>
+        </tr><br>
         {% endfor %}
-      </ul>
+      </tbody>
+      </table>
     </div>
 
 

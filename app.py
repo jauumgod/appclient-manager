@@ -61,8 +61,16 @@ def login():
     if request.method=='POST':
         username = request.form['usuario']
         password = request.form['senha']
-        
-        #login_user(user)
+
+        user = User.query.filter_by(username = username).first()
+
+        if not user:
+            flash("Credenciais Invalidas")
+            return redirect (url_for("login"))
+
+        if not check_password_hash(user.password, password):
+            return redirect(url_for("login"))
+
         return redirect(url_for("index"))
 
     return render_template("login.html")
@@ -71,9 +79,8 @@ def login():
 def route_admin_secret():
     if request.method=='POST':
         username = request.form['usuario']
-        password = request.form['senha']
-            
-        #login_user(user)
+        password = request.form['senha']    
+        #login_user(user) admin/ admin
         return redirect(url_for("index"))
 
 @app.route("/index")
@@ -82,22 +89,32 @@ def index():
 
 @app.route("/config")
 def config():
-    
     users = User.query.all()
     return render_template("config.html", users=users)
 
+@app.route("/resolvidos")
+def resolvidos():
+    return render_template("resolvidos.html")
 
 @app.route("/registrar", methods=['GET', 'POST'])
 def registrar():
     if request.method=='POST':
         user = User()
         user.username = request.form['user']
-        user.password = request.form['password']
+        user.password = generate_password_hash(request.form['password'])
         db.session.add(user)
         db.session.commit()
         return redirect(url_for("config"))
 
     return render_template("registrar.html")
+
+@app.route("/contratos")
+def contratos():
+    return render_template("contratos.html")
+
+@app.route("/logout")
+def logout_user():
+    return redirect(url_for("login"))
 
 if __name__ == "__main__":
     app.run(debug=True)
