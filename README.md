@@ -4,7 +4,10 @@ Projeto para Controle de Clientes com saldos devedores automatizado.
 
 - Linguagem Python
 - Framework FLASK
+#
+<h2>Comandos para utilizar o projeto</h2>
 ```
+git clone  https://github.com/jauumgod/appclient-manager
 python -m venv venv-appclient
 pip install -r requirements.txt
 
@@ -19,3 +22,4 @@ Funcionalidades como:
     - Grafico detalhado
 ```
 - Estou implementando um <strong>FOR</strong> para percorrer meus dados que foram importados com ajuda da lib pandas e openpyxl e criar meus clientes na tabela com organização.
+
