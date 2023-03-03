@@ -20,5 +20,5 @@ def read_data(arquivo):
 
     return sorted_data
 
-read_data(df)
+sorted_data = read_data(df)
 
