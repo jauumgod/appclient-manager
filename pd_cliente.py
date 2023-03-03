@@ -1,5 +1,7 @@
 import pandas as pd
 import openpyxl
+import numpy as np
+
 
 df = pd.read_excel(".//static//tab_client.xlsx")
 
@@ -11,5 +13,10 @@ for i in range(df.shape[0]):
     data.append(linha)
 
 
-sorted_data = data
-#print(data)
+arr = np.array(data)
+lista = arr.tolist()
+sorted_data = dict(enumerate(lista[0]))
+
+
+
+print(sorted_data)

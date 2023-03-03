@@ -2,6 +2,7 @@ from flask import Flask, url_for, request, render_template, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_manager, login_user, logout_user,UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from pd_cliente import *
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///ford.db"
@@ -29,7 +30,7 @@ class User(db.Model, UserMixin):
         db.create_all()
     
 
-class Devedores(db.Model):
+"""class Devedores(db.Model):
     __tablename__ = 'tab_clients'
     id = db.Column(db.Integer, primary_key=True)
     clientes = db.Column(db.String(184), unique=True, nullable=False)
@@ -40,7 +41,7 @@ class Devedores(db.Model):
         return self.name
 
     with app.app_context():
-        db.create_all()
+        db.create_all()"""
 
 
 @app.route("/config/user/<int:id>")
@@ -85,7 +86,16 @@ def route_admin_secret():
 
 @app.route("/index")
 def index():
-    return render_template("index.html")
+    try:
+        dados = sorted_data
+        return render_template("index.html", dados=dados)
+    #TODO: add correção para essa linha a baixo
+    except:
+        print("nao foi possivel, executar esse trecho")
+
+    finally:
+        return render_template("index.html")
+    
 
 @app.route("/config")
 def config():
